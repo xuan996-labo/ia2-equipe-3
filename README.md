@@ -89,8 +89,6 @@ Le parcours en largeur correspond à l’ordre des nœuds dans la liste lorsqu�
 
 L'exercice 3.3 consiste à trouver le plus court chemin de **A** vers **F** dans un réseau qui n'est pas dessiné : il est donné par sa **matrice pondérée**. Une case vaut le nombre de minutes de la rue, et **0 veut dire : pas de rue**.
 
-Le travail complet (dessin, tableau et réponses) se trouve dans le fichier [3_3_Dijktra.md](3.3.Dijktra.md).
-
 #### 3.3.a Travail réalisé
 
 - Lecture de la matrice : elle est **symétrique**, donc le réseau est **non orienté** (une rue se prend dans les deux sens).
@@ -104,22 +102,17 @@ Le travail complet (dessin, tableau et réponses) se trouve dans le fichier [3_3
 
 #### 3.3.b Développement / Implémentation
 
-Les 9 rues lues dans la matrice :
+**a) Le réseau.** Les 9 rues lues dans la matrice :
 
 | Rue | A–B | A–C | B–C | B–D | C–D | C–E | D–E | D–F | E–F |
 |---|---|---|---|---|---|---|---|---|---|
 | Minutes | 5 | 2 | 1 | 4 | 7 | 10 | 3 | 8 | 2 |
 
-Le tableau de Dijkstra (en gras : la case entourée à chaque étape) :
+![Dessin du réseau de l'exercice 3.3, avec les minutes sur chaque rue](3_3_a_Dessin_reseau.png)
 
-| A | B | C | D | E | F | Étape |
-|---|---|---|---|---|---|---|
-| **0** | 5-A | 2-A | | | | 1 |
-| × | 3-C | **2-A** | 9-C | 12-C | | 2 |
-| × | **3-C** | × | 7-B | 12-C | | 3 |
-| × | × | × | **7-B** | 10-D | 15-D | 4 |
-| × | × | × | × | **10-D** | 12-E | 5 |
-| × | × | × | × | × | **12-E** | 6 |
+**b) Le tableau de Dijkstra** (en vert : la case entourée à chaque étape) :
+
+![Tableau de Dijkstra de l'exercice 3.3, en 6 étapes](3_3_b_Tableau.png)
 
 Le détail des relâchements :
 
@@ -132,11 +125,16 @@ Le détail des relâchements :
 
 #### 3.3.c Résultats
 
-- **Plus court chemin :** A → C → B → D → E → F
+**c) Le plus court chemin**, en rouge sur le dessin :
+
+![Plus court chemin de A à F, en rouge](3_3_c_Dessin_chemin_court.png)
+
+- **Chemin :** A → C → B → D → E → F
 - **Durée :** 2 + 1 + 4 + 3 + 2 = **12 minutes**, le même nombre que la case 12-E.
 - **Cases améliorées en cours de route :** B (5 → 3), D (9 → 7), E (12 → 10) et F (15 → 12).
 - **Contrôles gratuits :** aucune colonne ne remonte, et les valeurs entourées ne descendent jamais (0, 2, 3, 7, 10, 12).
-- **Pourquoi passer par C pour aller en B ?** Le détour par C coûte 2 + 1 = 3 minutes, moins que les 5 minutes de la rue directe A–B. À l'étape 2, on a donc remplacé 5-A par 3-C : la rue la plus directe n'est pas forcément la plus rapide.
+
+**d) Pourquoi passer par C pour aller en B ?** Le détour par C coûte 2 + 1 = 3 minutes, moins que les 5 minutes de la rue directe A–B. À l'étape 2, on a donc remplacé 5-A par 3-C : la rue la plus directe n'est pas forcément la plus rapide.
 
 ---
 
