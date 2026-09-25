@@ -89,7 +89,7 @@ Le parcours en largeur correspond à l’ordre des nœuds dans la liste lorsqu�
 
 L'exercice 3.3 consiste à trouver le plus court chemin de **A** vers **F** dans un réseau qui n'est pas dessiné : il est donné par sa **matrice pondérée**. Une case vaut le nombre de minutes de la rue, et **0 veut dire : pas de rue**.
 
-Le travail complet (dessin, tableau et réponses) se trouve dans le fichier [3_3_Dijktra.md](3_3_Dijktra.md).
+Le travail complet (dessin, tableau et réponses) se trouve dans le fichier [3_3_Dijktra.md](3.3.Dijktra.md).
 
 #### 3.3.a Travail réalisé
 
