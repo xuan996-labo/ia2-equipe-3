@@ -108,11 +108,11 @@ L'exercice 3.3 consiste à trouver le plus court chemin de **A** vers **F** dans
 |---|---|---|---|---|---|---|---|---|---|
 | Minutes | 5 | 2 | 1 | 4 | 7 | 10 | 3 | 8 | 2 |
 
-![Dessin du réseau de l'exercice 3.3, avec les minutes sur chaque rue](3_3_a_Dessin_reseau.png)
+![Dessin du réseau de l'exercice 3.3, avec les minutes sur chaque rue](3.3.a.Dessin_reseau.png)
 
 **b) Le tableau de Dijkstra** (en vert : la case entourée à chaque étape) :
 
-![Tableau de Dijkstra de l'exercice 3.3, en 6 étapes](3_3_b_Tableau.png)
+![Tableau de Dijkstra de l'exercice 3.3, en 6 étapes](3.3.b.Tableau.png)
 
 Le détail des relâchements :
 
@@ -127,7 +127,7 @@ Le détail des relâchements :
 
 **c) Le plus court chemin**, en rouge sur le dessin :
 
-![Plus court chemin de A à F, en rouge](3_3_c_Dessin_chemin_court.png)
+![Plus court chemin de A à F, en rouge](3.3.c.Dessin_chemin_court.png)
 
 - **Chemin :** A → C → B → D → E → F
 - **Durée :** 2 + 1 + 4 + 3 + 2 = **12 minutes**, le même nombre que la case 12-E.
