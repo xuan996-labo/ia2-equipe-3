@@ -140,16 +140,33 @@ Le détail des relâchements :
 
 ## 4. Difficultés rencontrées et solutions
 
+### 4.1 Sur la matière
+
+| Difficulté | Solution |
+|---|---|
+| **3.1** — Placer les nœuds quand l'arbre a des trous : sans les cases vides, les nœuds suivants se décalent. | Calculer chaque case avec la formule `2i + 1` (gauche) ou `2i + 2` (droite), puis écrire `None` dans chaque case sans nœud. |
+| **3.3** — Lire la matrice sans compter chaque rue deux fois. | La matrice est symétrique : on ne lit que la moitié au-dessus de la diagonale. On trouve 9 rues. |
+| **3.3** — Accepter qu'une case déjà écrite change : B valait d'abord 5 par la rue directe. | Appliquer la règle du relâchement : on réécrit une case seulement si la nouvelle route est plus courte (3 < 5). Quatre cases ont ainsi été améliorées. |
+
+### 4.2 Sur Git et GitHub
+
 | Difficulté | Solution |
 |---|---|
 | Dans GitHub Desktop, le bouton **New branch** restait grisé. | Le dépôt était vide : une branche part toujours de `main`, et `main` n'avait encore aucun commit. Un premier commit sur `main` a débloqué la création de la branche `feature/Dijkstra/matrice`. |
-
-[À compléter par l'équipe]
+| Un fichier de l'exercice 3.3 a été supprimé par erreur dans la branche. | Le travail n'était pas perdu : il restait dans l'historique Git. Le contenu a ensuite été déplacé directement dans ce README, avec les images. |
+| La branche locale n'était pas synchronisée avec celle de GitHub, car certains commits avaient été faits directement sur GitHub.com. | Les dernières corrections ont été faites sur GitHub.com, sur la même branche, sans pousser la version locale (pas de *force push*). |
+| Le lien vers un fichier ne marchait plus après un changement de nom. | Vérifier que le nom écrit dans le README est exactement celui du fichier : les points, les tirets bas et les majuscules comptent. |
 
 ---
 
 ## 5. Conclusion
 
-[À compléter]
+Les deux exercices réalisés montrent deux façons de passer d'une représentation à une autre. En 3.1, on range un arbre dessiné dans une simple liste Python : la formule `2i + 1` / `2i + 2` suffit à retrouver chaque enfant, à condition de garder des `None` à la place des nœuds absents. En 3.3, on part au contraire d'une matrice pour retrouver le réseau, puis Dijkstra y trouve le plus court chemin de A à F : **A → C → B → D → E → F, en 12 minutes**.
+
+Ce qui nous a le plus marqués : le chemin le plus direct n'est pas toujours le plus rapide. La rue A–B coûte 5 minutes, mais le détour par C n'en coûte que 3. Dijkstra le découvre tout seul grâce au relâchement, et les deux contrôles gratuits permettent de vérifier le tableau sans le refaire.
+
+Côté travail d'équipe, chaque partie a été faite dans sa propre branche, puis proposée par une pull request relue par l'autre membre avant la fusion dans `main`. Les problèmes rencontrés avec Git (dépôt vide, fichier supprimé, branche non synchronisée) nous ont appris qu'un commit n'est jamais perdu : il reste dans l'historique, et on peut toujours revenir en arrière.
+
+L'exercice 3.2 (du dictionnaire au dessin) n'a pas été attribué, l'équipe ne comptant que deux membres.
 
 ---
